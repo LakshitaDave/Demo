@@ -22,6 +22,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
       appBar: AppBar(
         title: const Text('Third Screen'),
         centerTitle: true,
+        backgroundColor: Colors.blueGrey,
       ),
       backgroundColor: Colors.blueGrey,
       body:  Column(
@@ -39,11 +40,16 @@ class _ThirdScreenState extends State<ThirdScreen> {
              child: RoundedBtn(
                btnName: 'Play',
                // icon: const Icon(Icons.play_arrow)
+
                callBack: (){
               print('Played');
                        },),
-           ),
 
+           ),
+            const SizedBox(height: 15.0,),
+          ElevatedButton(onPressed: (){
+            Navigator.pushNamed(context, '/http');
+          }, child: const Text("Next")),
 
     ]
 

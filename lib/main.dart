@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:demo/project_routes/app_routes.dart';
 import 'package:demo/screen/home.dart';
+import 'package:demo/screen/httpRequests.dart';
 import 'package:demo/screen/loginScreen.dart';
 import 'package:demo/screen/second.dart';
 import 'package:demo/screen/splashScreen.dart';
@@ -27,8 +28,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
-
-     initialRoute: '/',
+      debugShowCheckedModeBanner: false,
+     initialRoute: '/http',
       //onGenerateRoute: MyAppRouter.generateRoute(),
       routes: {
        '/' : (context)=> const SplashScreen(),
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
        '/home' : (context) => const Home(),
         '/second' : (context) => const SecondScreen(name: 'GO BACK !!!', description: 'this is second'),
         '/third' : (context)=> const ThirdScreen(t: 'This is last screen'),
+        '/http' :(context)=>const HttpRequest(),
       },
     );
   }

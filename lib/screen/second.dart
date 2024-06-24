@@ -56,6 +56,8 @@ class _SecondScreenState extends State<SecondScreen> {
         centerTitle: true,
       ),
       backgroundColor: Colors.grey,
+
+
       body:  Center(
         child: Column(
 

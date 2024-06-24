@@ -1,6 +1,8 @@
 import 'dart:io';
 
+import 'package:demo/screen/navbar.dart';
 import 'package:demo/screen/second.dart';
+import 'package:demo/screen/navbar.dart';
 import 'package:flutter/material.dart';
 
 
@@ -51,7 +53,20 @@ class _HomeState extends State<Home> {
             centerTitle: true,
             backgroundColor: v,
             automaticallyImplyLeading: false,
+            leading: Builder(
+              builder: (context) {
+                return IconButton(
+                  icon: const Icon(Icons.menu),
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
+                );
+              },
+            ),
           ),
+
+          drawer: NavBar(),
+
           floatingActionButton: FloatingActionButton(
             onPressed: (){
               setState(() {
