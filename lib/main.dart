@@ -1,22 +1,29 @@
-import 'dart:io';
-import 'dart:ui';
 
-import 'package:demo/project_routes/app_routes.dart';
+import 'package:demo/api/firebase_push_notifications.dart';
+import 'package:demo/screen/bottom_navbar.dart';
+import 'package:demo/screen/googleMapScreen.dart';
 import 'package:demo/screen/home.dart';
-import 'package:demo/screen/httpRequests.dart';
+import 'package:demo/screen/imagePick.dart';
 import 'package:demo/screen/loginScreen.dart';
+import 'package:demo/screen/notification.dart';
 import 'package:demo/screen/second.dart';
+import 'package:demo/screen/settings.dart';
 import 'package:demo/screen/splashScreen.dart';
+import 'package:demo/screen/tabview.dart';
 import 'package:demo/screen/third.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'firebase_options.dart';
 
+final navigatorKey = GlobalKey<NavigatorState>();
 
-void main(){
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+ await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await FirebasePushNotifications().init();
   runApp(const MyApp());
-
 }
 
 class MyApp extends StatelessWidget {
@@ -29,15 +36,23 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
-     initialRoute: '/http',
+     initialRoute: '/',
+      navigatorKey: navigatorKey,
       //onGenerateRoute: MyAppRouter.generateRoute(),
       routes: {
        '/' : (context)=> const SplashScreen(),
        '/login' : (context)=> const LoginScreen(),
-       '/home' : (context) => const Home(),
+        '/home' : (context) => const Home(),
         '/second' : (context) => const SecondScreen(name: 'GO BACK !!!', description: 'this is second'),
         '/third' : (context)=> const ThirdScreen(t: 'This is last screen'),
-        '/http' :(context)=>const HttpRequest(),
+       '/bottomNavbar' :(context)=>const BottomNavbar(),
+        '/tab'  : (context)=>const TabView(),
+        '/picker' : (context)=>const ImagePick(),
+        '/settings' : (context)=> Settings(),
+        '/notification':(context)=> NotificationScreen(),
+        '/google' :(context)=>GoogleMapScreen(),
+
+
       },
     );
   }

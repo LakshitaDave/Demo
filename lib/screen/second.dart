@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:demo/screen/third.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SecondScreen extends StatefulWidget {
@@ -54,9 +53,9 @@ class _SecondScreenState extends State<SecondScreen> {
       appBar: AppBar(
         title: const Text("Second Screen"),
         centerTitle: true,
+        automaticallyImplyLeading: false,
       ),
       backgroundColor: Colors.grey,
-
 
       body:  Center(
         child: Column(
@@ -74,7 +73,7 @@ class _SecondScreenState extends State<SecondScreen> {
               Text(widget.description,style: const TextStyle(fontSize: 20.0),),
               const SizedBox(height: 50.0,),
               ElevatedButton(onPressed: (){
-                Navigator.pushNamed(context, '/third');
+                Navigator.pushNamed(context, '/picker');
                 // Navigator.push(context,
                 //   MaterialPageRoute(builder: (context)=>const ThirdScreen(t:'Hello this is last screen'))
                 // );

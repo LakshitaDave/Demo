@@ -1,8 +1,6 @@
 import 'dart:io';
 
 import 'package:demo/screen/navbar.dart';
-import 'package:demo/screen/second.dart';
-import 'package:demo/screen/navbar.dart';
 import 'package:flutter/material.dart';
 
 
@@ -95,7 +93,7 @@ class _HomeState extends State<Home> {
                     Center(
                       child: ElevatedButton(
                           onPressed: (){
-                            Navigator.pushNamed(context, '/second');
+                            Navigator.pushNamed(context, '/tab');
                             // Navigator.push(
                             //   context,
                             //   MaterialPageRoute(

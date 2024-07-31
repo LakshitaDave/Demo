@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:demo/screen/bottom_navbar.dart';
 import 'package:demo/screen/loginScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Timer(const Duration(seconds: 2),(){
       Navigator.pushReplacement(context, MaterialPageRoute(
-          builder: (context)=>const LoginScreen()));
+          builder: (context)=>const BottomNavbar()));
     });
   }
 

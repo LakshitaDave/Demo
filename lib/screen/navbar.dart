@@ -54,6 +54,13 @@ class _NavBarState extends State<NavBar> {
                     Navigator.pop(context);
                     Navigator.pushNamed(context, '/third');
                   },
+                ),ListTile(
+                  leading: const Icon(Icons.map_outlined),
+                  title: const Text("Map "),
+                  onTap: (){
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, '/google');
+                  },
                 ),
 
              ],
